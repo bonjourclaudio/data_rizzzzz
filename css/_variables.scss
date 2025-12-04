@@ -10,3 +10,13 @@ $hr-color: #01d502;
 $spo2-color: #2bddff;
 $abp-color: #fd4c32;
 $rr-color: #fff162;
+
+// Grid
+$cols: 12;
+$rows: 6;
+
+.grid {
+  display: grid;
+  grid-template-columns: $cols;
+  grid-template-rows: $rows;
+}
