@@ -74,6 +74,10 @@ body {
         width: 30%;
         justify-content: space-between;
 
+        .name{
+            font-weight: bold;
+        }
+
       }
       &__center {
         display: flex;
@@ -95,7 +99,8 @@ body {
         justify-content: space-between;
         align-items: center;
 
-        .date {
+        .time{
+            font-weight: bold;
         }
 
       }
