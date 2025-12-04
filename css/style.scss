@@ -7,13 +7,42 @@ body {
   color: $text-color;
   font-size: 0.7rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  cursor:pointer;
+//   cursor:pointer;
   user-select: none;
 }
 
 /* ##### WRAPPER ##### */
 .wrapper {
   margin: 1rem;
+}
+
+.log-panel {
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    width: 20rem;
+    height: 15rem;
+    // background-color: $accent-color-light;
+    background-color: $footer-button-color;
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-y: auto;
+    // display: none;
+    font-size: large;
+
+    &__header {
+        display:flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        svg,
+        svg path {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill:white;
+        }
+
+    }
 }
 
 /* ###### NAVBAR ###### */
@@ -216,6 +245,8 @@ body {
   background-color: $emergency-color;
   border: 1px solid $text-color;
 }
+
+
 
 /* ###### MAIN ###### */
 // Grid Class is applied!
