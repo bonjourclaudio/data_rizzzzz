@@ -40,6 +40,7 @@ body {
         justify-content: space-between;
 
         .name {
+          font-weight: bold;
         }
 
         .birthdate {
@@ -51,8 +52,9 @@ body {
       &__center {
         display: flex;
         width: 30%;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+
         .emergency-btn {
           border: 1px solid $text-color;
 
@@ -71,14 +73,49 @@ body {
         }
 
         .time {
+          font-weight: bold;
         }
       }
     }
     &__log {
-      .log-icon {
-      }
+      background-color: $emergency-color;
+      width: 8vw;
+      min-width: 100px;
+      margin-left: 1rem;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      .log-badge {
+      &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .log-icon {
+          width: 30px;
+          height: 30px;
+          border: 2px solid $text-color;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          font-weight: bold;
+          margin-right: 1rem;
+        }
+
+        .log-badge {
+          height: 30px;
+          width: 30px;
+          background-color: red;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.7rem;
+          font-weight: bold;
+        }
       }
     }
   }
