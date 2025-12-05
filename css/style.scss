@@ -160,3 +160,10 @@ body {
   width: calc(100vw - 2rem);
   height: calc(100vh - 12vh - 2rem);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+  grid-gap: 1rem;
+}

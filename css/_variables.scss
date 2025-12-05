@@ -14,10 +14,3 @@ $rr-color: #fff162;
 // Grid
 $cols: 8;
 $rows: 4;
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat($cols, 1fr);
-  grid-template-rows: repeat($rows, 1fr);
-  grid-gap: 1rem;
-}
