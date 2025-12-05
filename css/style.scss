@@ -5,18 +5,10 @@ body {
   padding: 0;
   background-color: $bg-color;
   color: $text-color;
+  font-size: 0.7rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.1rem;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* ##### WRAPPER ##### */
@@ -36,7 +28,7 @@ h1 {
     justify-content: space-between;
 
     &__preset {
-      background-color: $emergency-color;
+      background-color: $navbar-footer-color;
       width: 12vw;
       min-width: 120px;
       margin-right: 1rem;
@@ -81,7 +73,7 @@ h1 {
       display: flex;
       justify-content: space-between;
       width: 95%;
-      background-color: $emergency-color;
+      background-color: $navbar-footer-color;
       border-radius: 40px;
       padding: 1rem;
       align-items: center;
@@ -93,14 +85,6 @@ h1 {
 
         .name {
           font-weight: bold;
-        }
-
-        .birthdate {
-          display: block;
-        }
-
-        .gender {
-          display: block;
         }
       }
       &__center {
@@ -123,17 +107,13 @@ h1 {
         justify-content: space-between;
         align-items: center;
 
-        .date {
-          display: block;
-        }
-
         .time {
           font-weight: bold;
         }
       }
     }
     &__log {
-      background-color: $emergency-color;
+      background-color: $navbar-footer-color;
       width: 8vw;
       min-width: 100px;
       margin-left: 1rem;
@@ -155,7 +135,7 @@ h1 {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 1rem;
+          font-size: 0.7rem;
           font-weight: bold;
           margin-right: 1rem;
         }
@@ -176,382 +156,76 @@ h1 {
   }
 }
 
+/* ###### FOOTER ###### */
+.footer {
+  display: inline-flex;
+  width: 100%;
+  height: 6vh;
+  font-size: 0.7rem;
+  white-space: nowrap;
+
+  .footer-btn {
+    background-color: $footer-button-color;
+
+    // padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    border-radius: 50px;
+  }
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__main {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: $navbar-footer-color;
+      border-radius: 40px;
+      padding: 1rem;
+      align-items: center;
+
+      &__left {
+        display: flex;
+        width: 25%;
+        justify-content: flex-start;
+        gap: 0.5rem;
+      }
+      &__center {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      &__right {
+        height: 100%;
+        display: flex;
+        width: 25%;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+.navbar.emergency .navbar__inner__preset,
+.navbar.emergency .navbar__inner__main,
+.navbar.emergency .navbar__inner__log {
+  background-color: $emergency-color;
+}
+
+.navbar.emergency .emergency-btn {
+  background-color: $emergency-color;
+  border: 1px solid $text-color;
+}
+
 /* ###### MAIN ###### */
 // Grid Class is applied!
 .main {
   margin: 1vh 0 1vh 0;
   width: calc(100vw - 2rem);
   height: calc(100vh - 12vh - 2rem);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat($cols, 1fr);
-  grid-template-rows: repeat($rows, 1fr);
-  grid-gap: 1rem;
-}
-
-.lower-section {
-  height: 100%;
-  margin-top: 5rem;
-}
-
-.lower-div {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  height: calc(100vh - 12vh - 2rem);
-  color: $text-color;
-  display: grid;
-  /* make lower-div a 8-column inner grid matching the global columns */
-  grid-template-columns: repeat($cols, 1fr);
-  grid-gap: 1rem;
-}
-
-.selection-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  align-items: stretch;
-  grid-column: span 2;
-  max-height: calc(100% - 2rem);
-  overflow: auto;
-  position: relative;
-}
-
-.selection-title {
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.selection-item {
-  display: flex;
-  flex-direction: row;
-  width: 60%;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0.1rem;
-  border-width: 0.1rem;
-  border-style: solid;
-  border-color: $accent-color;
-  padding: 0.5rem 0.75rem;
-  margin: 0.5rem 0;
-  text-align: left;
-  cursor: pointer;
-  background: transparent;
-
-  .selection-item.active {
-    background: $accent-color-light;
-    border-color: $spo2-color;
-    color: $text-color;
-  }
-  .selection-icon-title {
-    font-size: 1.2rem;
-    font-weight: normal;
-  }
-
-  .selection-item-icon {
-    width: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.timeline-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: scroll;
-  padding: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  grid-column: 3 / -1;
-  grid-row: 1 / -1;
-  align-items: stretch;
-  max-height: calc(100% - 2rem);
-  overflow: auto;
-}
-
-/* Timeline history styles */
-.timeline-history {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  /* allow history to grow so inner track can stretch */
-  flex: 1 1 auto;
-  min-height: 0;
-}
-
-.range-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.timeline-history__row {
-  display: flex;
-  width: 100%;
-  align-items: stretch; /* allow track-column to stretch vertically */
-  gap: 1rem;
-}
-
-.range-column {
-  /* keep range buttons to the left with fixed width matching button sizes */
-  display: flex;
-  align-items: center;
-  padding-top: 0.25rem;
-  width: 64px; /* enough for stacked circular buttons */
-  flex-shrink: 0;
-  justify-content: center;
-}
-
-.track-column {
-  /* take the remaining width and allow the timeline track to stretch vertically */
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 64px);
-  flex: 1 1 auto;
-  min-height: 0; /* allow children to shrink inside flex */
-}
-
-.range-button {
-  background: $accent-color-light;
-  color: $text-color;
-  border: 1px solid $accent-color;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.range-button.active {
-  background: $spo2-color;
-  color: #000;
-}
-
-.timeline-track-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
-}
-
-.timeline-stage {
-  display: flex;
-  flex-direction: column;
-  /* allow stage to grow and let inner track fill available space */
-  flex: 1 1 auto;
-  min-height: 0;
-}
-
-.timeline-history {
-  padding-bottom: 0.5rem;
-}
-
-.timeline-label {
-  flex: 1;
-  text-align: center;
-}
-
-.timeline-track {
-  position: relative;
-  height: 100%;
-  background: $accent-color-light;
-  border-radius: 6px;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.timeline-inner {
-  height: 100%;
-  min-width: 100%;
-}
-
-.timeline-inner {
-  position: relative;
-}
-
-.timeline-ticks {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.timeline-tick {
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* ensure markers and cursor render above ticks */
-.timeline-marker,
-.time-cursor,
-.time-indicator {
-  z-index: 10;
-}
-
-.timeline-marker {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 2px;
-  height: 60%;
-  background: $hr-color;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.timeline-marker::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: -8px;
-  width: 8px;
-  height: 8px;
-  background: $spo2-color;
-  border-radius: 50%;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-}
-
-.time-cursor {
-  position: absolute;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: $spo2-color;
-  transform: translateX(0);
-  cursor: grab;
-}
-
-.timeline-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: $text-color;
-  padding: 0 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
-/* overlay line that appears over the selection area */
-#selectionTimeLine,
-.selection-time-line {
-  position: fixed;
-  width: 2px;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.selection-time-label {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.06);
-  color: $text-color;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  z-index: 10000;
-}
-
-.time-indicator {
-  position: absolute;
-  top: -1.8rem;
-  left: 0;
-  transform: translateX(0);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: $text-color;
-}
-
-.graph.selected {
-  outline: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.timeline-marker.graph-marker {
-  background: $abp-color;
-}
-
-.timeline-marker.graph-marker::after {
-  background: $abp-color;
-}
-
-/* timeline controls */
-.timeline-controls {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.time-slider-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-left: auto;
-}
-
-.time-slider {
-  width: 300px;
-}
-
-.pan-btn {
-  background: $accent-color-light;
-  border: 1px solid $accent-color;
-  color: $text-color;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.time-range {
-  background: $accent-color-light;
-  padding: 0.5rem;
-  border-radius: 6px;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.graphs {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.graph {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border: 1px solid $accent-color;
-  height: 150px;
-  border-radius: 6px;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $text-color;
-}
-
-.graph.hidden {
-  display: none;
 }
